@@ -1,0 +1,1052 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --base-font: "Inter", sans-serif;
+  --color-light-gray: #e3e3e3;
+  --color-primary: black;
+  --color-primary-green: #57d99f;
+  --color-primary-green-light: #d5f7e6;
+  --color-primary-text: white;
+  --box-shadow: rgba(0, 0, 0, 0.12) 0px 16px 48px 0px;
+  --gradient-primary: linear-gradient(90deg, #57d99f, #d5f7e6);
+  --box-shadow-2: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --gradient-secondary: linear-gradient(90deg, #94f5c4, #57d99f);
+}
+
+/****** RULES FOR COLLABORATION *******
+1. Use the page template in the home page and add your MAIN content in it;
+2. Button tags are globally defined to have the same style;
+3. Use the variables saved inside :root;
+4. Maintain the height for the front page;
+5. Target yout elements inside main tag by adding a class to it like,
+    ".main-container h1" 
+    to avoid conflicts with other pages;
+****/
+
+/****************** 
+    GLOBAL STYLES 
+-- BY ROHAN KUMAR
+*******************/
+
+* {
+  box-sizing: border-box;
+  transition: 600ms ease-in-out;
+  scroll-behavior: smooth;
+  font-family: var(--base-font);
+}
+label {
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-areas: "header header" "aside main" " aside footer";
+  grid-template-columns: 1fr 7fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.main-container {
+  margin: 0 8%;
+}
+
+header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  display: flex;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--color-light-gray);
+  background-color: var(--color-primary-text);
+  z-index: 99;
+  justify-content: space-between;
+  align-items: center;
+}
+header > div a {
+  display: flex;
+  color: var(--color-primary);
+}
+header a {
+  text-decoration: none;
+}
+header button {
+  padding: 6px 12px;
+  font-size: 16px;
+  height: 36px;
+}
+aside {
+  grid-area: aside;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+
+header h1 {
+  text-align: center;
+  font-family: var(--base-font);
+  font-size: 44px;
+  letter-spacing: -2px;
+  margin: 0;
+  padding: 6px;
+  z-index: 99;
+}
+aside {
+  background-color: var(--color-primary);
+  z-index: 1;
+  min-width: 240px;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 29.5vh 0 0;
+}
+aside nav {
+  position: sticky;
+  top: 100px;
+}
+
+aside a {
+  display: block;
+  padding: 10px 20px;
+  font-size: xx-large;
+  width: 100%;
+  color: var(--color-primary-text);
+  opacity: 0.9;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+aside a:hover {
+  background: var(--color-primary-text);
+  color: var(--color-primary);
+}
+
+.box-mask {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--color-primary-text);
+  background: transparent;
+  transition-duration: 800ms;
+  border-radius: 16px;
+  position: absolute;
+  top: -180px;
+  right: -38px;
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+.box-mask-2 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--color-primary-text);
+  background: transparent;
+  transition-duration: 800ms;
+  border-radius: 16px;
+  position: absolute;
+  top: 340px;
+  left: -60px;
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+header .box-mask {
+  opacity: 1;
+  position: static;
+  border: 2px solid black;
+  margin-right: -10px;
+  height: 36px;
+  width: 36px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+aside:hover .box-mask {
+  margin-top: 280px;
+  margin-right: 280px;
+  transform: rotate(-180deg);
+  opacity: 1;
+}
+aside:hover .box-mask-2 {
+  margin-top: 250px;
+  margin-left: 250px;
+  transform: rotate(-45deg);
+  opacity: 1;
+}
+
+main {
+  z-index: 2;
+}
+footer {
+  padding: 0 10% 30px 0;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 30px 8%;
+  opacity: 0.9;
+  margin-top: 100px;
+}
+
+footer h1 {
+  font-size: 60px;
+  margin: 0;
+  border-radius: 0 0 0 12px;
+  color: var(--color-primary-green);
+}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer {
+  display: grid;
+  grid-template-areas: "company quick-links social-links" "copyright copyright copyright";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 5fr 1fr;
+}
+
+footer a {
+  display: block;
+  text-decoration: none;
+  padding: 6px 0;
+  color: var(--color-primary-text);
+}
+
+footer p {
+  grid-area: copyright;
+  text-align: left;
+  margin: 16px 0 0;
+  opacity: 0.7;
+}
+
+button {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  outline: none;
+  border: none;
+  padding: 16px 16px;
+  font-size: 24px;
+  border-radius: 4px;
+}
+button:hover {
+  box-shadow: var(--box-shadow);
+  transition: 300ms;
+  cursor: pointer;
+  /* color: var(cyan); */
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    grid-template-areas: "header" "aside" "main" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr);
+  }
+  aside ul {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  aside a {
+    font-size: medium;
+  }
+
+  header {
+    position: static;
+  }
+  footer {
+    padding: 30px 16px;
+  }
+  .box-mask,
+  .box-mask-2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+  header {
+    justify-content: center;
+  }
+  header button {
+    display: none;
+  }
+
+  header h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  aside ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer {
+    grid-template-areas: "company" "quick-links" "social-links" "copyright";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    text-align: center;
+    margin-top: 40px;
+  }
+  footer p {
+    text-align: center;
+  }
+  button {
+    padding: 10px 22px;
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+/************ 
+GLOBAL STYLES ENDS
+*************/
+
+/****************
+    HOME PAGE 
+-- BY ROHAN KUMAR
+*****************/
+
+.home-main .landing-box-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 20px;
+}
+.home-main .landing-box-1 h1 {
+  font-size: 56px;
+  color: #000;
+}
+.home-main .landing-box-1 p {
+  font-size: 22px;
+}
+.home-main .landing-box-1 button {
+  margin-bottom: 40px;
+}
+.home-main .landing-box-1 img {
+  width: 100%;
+  max-width: 450px;
+  margin: auto auto 0;
+}
+.home-main .landing-box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 40px;
+}
+.home-main .landing-box h2 {
+  font-size: 36px;
+}
+
+.home-main .landing-box-1 section {
+  order: -1;
+}
+.home-main .landing-box-1 {
+  min-height: calc(100vh - 66px);
+  padding: 40px 8% 0;
+  background: var(--gradient-primary);
+}
+
+.home-main .landing-box-1 {
+  margin: auto auto 0;
+}
+.home-main .landing-box-1:hover {
+  margin-top: 0px;
+}
+.home-main .landing-box img {
+  height: auto;
+  width: 500px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.home-main .landing-box section {
+  margin: auto auto auto 0;
+}
+.home-main .landing-box p {
+  font-size: 18px;
+}
+
+.home-main .landing-box:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+@media only screen and (max-width: 1366px) {
+  .home-main .landing-box-1 object {
+    width: 50%;
+  }
+  .home-main .landing-box-1 h1 {
+    font-size: 36px;
+  }
+  .home-main .landing-box-1 p {
+    font-size: 18px;
+  }
+  .home-main .landing-box p {
+    font-size: 16px;
+  }
+  .home-main .landing-box img {
+    width: auto;
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .home-main .landing-box-1 section {
+    order: 1;
+  }
+  .home-main .landing-box-1 {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 30px 16px 0;
+    min-height: auto;
+  }
+  .home-main .landing-box-1 h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  .home-main .landing-box-1 img {
+    order: -1;
+    width: 200px;
+  }
+  .home-main .landing-box-1 h1 {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+  .home-main .landing-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-main .landing-box:nth-of-type(even) {
+    flex-direction: column;
+  }
+  .home-main .landing-box-1 object {
+    width: 70%;
+  }
+  .home-main .landing-box-1 h1 {
+    margin: auto;
+  }
+  .home-main .landing-box-1 {
+    background: var(--gradient-primary);
+  }
+  .home-main .landing-box-1 h1 {
+    width: 328px;
+  }
+  .home-main .landing-box img {
+    width: 300px;
+  }
+  .home-main section {
+    text-align: center;
+  }
+  .home-main .landing-box {
+    padding: 24px 16px;
+    background-color: var(--color-primary-green-light);
+  }
+  .home-main .main-container {
+    margin: 30px 16px 0;
+  }
+}
+
+/*************
+HOME PAGE ENDS
+**************/
+
+/****************
+CONTACT US
+BY ROHAN & TUSHAR
+*****************/
+
+.main-contact-us .first-section {
+  padding: 30px 8% 40px;
+  background: var(--gradient-secondary);
+  min-height: 100vh;
+}
+.main-contact-us .first-section h1 {
+  color: #000;
+  font-size: 44px;
+}
+.main-contact-us .contact-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.main-contact-us .contact-main-container > div {
+  border-radius: 4px;
+}
+
+.main-contact-us .main-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.main-contact-us .main-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #000;
+  color: white;
+}
+.main-contact-us input,
+.main-contact-us select {
+  padding: 6px 14px;
+}
+
+.main-contact-us .right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main-contact-us .right-content > div {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.main-contact-us input[type="submit"] {
+  background: var(--color-primary-green);
+  font-weight: bold;
+  font-size: 26px;
+  border: none;
+  border-radius: 2px;
+  padding: 12px;
+}
+
+.main-contact-us .call-box a {
+  display: block;
+  margin-top: 10px;
+}
+
+.main-contact-us .second-section {
+  padding: 0 8%;
+}
+.main-contact-us .second-section h1 {
+  font-size: 44px;
+}
+
+.main-contact-us .contact-bottom-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.main-contact-us .contact-bottom-container > div {
+  min-width: 20%;
+}
+
+.main-contact-us .contact-bottom-container tel {
+  display: block;
+  margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 764px) {
+  .main-contact-us .contact-main-container {
+    flex-direction: column;
+  }
+  .main-contact-us .first-section h1 {
+    font-size: 26px;
+    text-align: center;
+    max-width: 400px;
+    margin: 30px auto;
+  }
+  .main-contact-us .contact-bottom-container {
+    flex-direction: column;
+  }
+}
+
+/**************
+CONTACT US ENDS
+***************/
+
+/*******************
+PRICING  GAGANDEEP KAUR
+********************/
+
+.pricing-main section {
+  margin: 0 auto 0 auto;
+  text-align: center;
+  height: 100vh;
+  /* https://stackoverflow.com/questions/41668636/height-calculation-with-css-calc-math-method */
+  background: var(--gradient-secondary);
+  display: flex;
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container */
+  flex-direction: column;
+  justify-content: center;
+}
+.pricing-main section h1 {
+  font-size: 44px;
+  color: var(--color-primary);
+}
+.pricing-main main button {
+  /* width: 150px; */
+  padding: 10px 40px 10px 10px;
+}
+.pricing-main section p {
+  font-size: 26px;
+  color: var(--color-primary);
+}
+.pricing-main .pricing-cards > a {
+  display: inline-block;
+  padding: 100px;
+  border-radius: 4px;
+  color: white;
+  background: black;
+  margin-bottom: 40px;
+  font-size: 32px;
+  text-decoration: none;
+  margin: 0 10px 0 10px;
+}
+
+.pricing-main table {
+  margin: 60px auto 0 auto;
+}
+
+.pricing-main table:nth-child(1) {
+  /* https://stackoverflow.com/questions/21462305/css-child-selectors-targeting-specific-elements-in-a-table */
+  margin-bottom: 40px;
+}
+
+.pricing-main caption {
+  text-transform: uppercase;
+  padding: 10px 20px 40px 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.pricing-main td,
+.pricing-main th {
+  padding: 1em;
+  font-size: 18px;
+}
+
+.pricing-main th span {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+}
+
+.pricing-main .proficient,
+.pricing-main .mastery,
+.pricing-main .prodigy {
+  padding-top: 40px;
+  border: 2px solid var(--color-primary-green-light);
+  border-radius: 16px 16px 0 0;
+}
+
+.pricing-main td:nth-child(2),
+.pricing-main td:nth-child(3),
+.pricing-main td:nth-child(4) {
+  text-align: center;
+}
+
+.pricing-main tr:nth-of-type(even) {
+  background: var(--color-primary-green-light);
+  color: var(--color-primary);
+}
+.pricing-main tr:nth-last-child(2) td {
+  border-radius: 0 0 16px 16px;
+  /* https://www.w3schools.com/cssref/css3_pr_border-radius.php */
+}
+.pricing-main tr:nth-child(2) td:nth-child(1) {
+  border-radius: 8px 8px 0 0;
+}
+.pricing-main tr:last-of-type td:nth-child(1) {
+  border: none;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 764px) {
+  /* https://www.w3schools.com/css/css_rwd_mediaqueries.asp */
+  .pricing-main section {
+    height: auto;
+    align-items: center;
+  }
+  .pricing-main section h1 {
+    font-size: 36px;
+  }
+  .pricing-main section p {
+    width: 320px;
+  }
+  .pricing-main .proficient,
+  .pricing-main .mastery,
+  .pricing-main .prodigy {
+    font-size: 13px;
+    padding: 10px 2px;
+  }
+  .pricing-main th span {
+    padding: 0;
+    font-size: 10px;
+  }
+  .pricing-main .pricing-cards > a {
+    display: block;
+    margin: 10px auto 10px auto;
+    padding: 50px;
+    font-size: 20px;
+  }
+
+  .pricing-main td {
+    font-size: 16px;
+    padding: 10px 2px 10px 2px;
+    font-size: 13px;
+  }
+  .pricing-main main button {
+    font-size: 16px;
+    padding: 6px 16px 6px 16px;
+  }
+
+  .pricing-main table {
+    overflow: auto;
+  }
+}
+
+/*******************
+   PRICING ENDS
+********************/
+
+/*******************
+   CODING 
+-- BY TUSHAR CHHABRA
+********************/
+
+.coding-maincontainer .coding-firstcontainer {
+  background: url("../images/coding-background.webp");
+  /* Free Vector | Hand drawn school supplies pattern background. (2023, September 28). Freepik. https://www.freepik.com/free-vector/hand-drawn-school-supplies-pattern-background_72127776.htm#fromView=search&page=1&position=2&uuid=957cbc1a-658c-4912-9576-9d2be7f38c23  background-size: cover; */
+  padding: 40px 8% 40px;
+  min-height: calc(100vh - 65px);
+  display: flex;
+}
+.coding-maincontainer .coding-firstcontainer h1 {
+  font-size: 44px;
+  color: var(--color-primary-text);
+}
+.coding-maincontainer .coding-firstcontainer li {
+  font-size: 22px;
+  color: var(--color-primary-text);
+}
+.coding-maincontainer img {
+  width: 300px;
+}
+/* CSS Flexbox (Flexible Box). (n.d.). https://www.w3schools.com/css/css3_flexbox.asp */
+.coding-maincontainer .coding-firstcontainer > div {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  margin: 40px;
+  padding: 40px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.coding-maincontainer .coding-firstcontainer object {
+  width: 100%;
+  max-width: 500px;
+  width: 100%;
+}
+.coding-maincontainer .coding-secondcontainer {
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.coding-maincontainer .coding-secondcontainer > div {
+  text-align: center;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.coding-maincontainer .coding-secondcontainer p {
+  font-weight: 600;
+}
+.coding-maincontainer .coding-secondcontainer img {
+  width: 70px;
+  height: auto;
+}
+
+.coding-maincontainer .coding-thirdcontainer {
+  text-align: center;
+}
+.coding-maincontainer .coding-thirdcontainer h2 {
+  font-size: 36px;
+}
+.coding-maincontainer .third-imagecontainer img {
+  border-radius: 8px 8px 0 0;
+  width: 300px;
+}
+.coding-maincontainer .third-imagecontainer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  max-width: 680px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.coding-maincontainer .third-imagecontainer p {
+  font-weight: bold;
+  background: #e3e3e3;
+  margin: 0;
+  border-radius: 0 0 8px 8px;
+  padding: 8px 16px;
+  margin-bottom: 30px;
+}
+/* CSS Grid Container. (n.d.). https://www.w3schools.com/css/css_grid_container.asp */
+.coding-maincontainer .coding-fourthcontainer {
+  display: grid;
+  text-align: center;
+  margin: 100px auto 100px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-weight: bold;
+  color: white;
+  background: black;
+}
+
+.coding-maincontainer .large-numbers {
+  padding-top: 40px;
+  font-size: 4.5em;
+  margin: 0;
+}
+.coding-maincontainer .coding-fifthcontainer {
+  text-align: center;
+}
+
+.coding-maincontainer .coding-fifthcontainer section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+}
+.coding-maincontainer .coding-fifthcontainer h2 {
+  display: inline-block;
+}
+.coding-maincontainer .coding-fifthcontainer section > div {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1366px) {
+  .coding-maincontainer .coding-firstcontainer {
+    padding: 16px;
+  }
+  .coding-maincontainer .coding-firstcontainer > div {
+    margin: 0;
+  }
+  .coding-maincontainer .coding-firstcontainer > div object {
+    width: 45%;
+  }
+  .coding-maincontainer .coding-firstcontainer > div h1 {
+    font-size: 40px;
+  }
+  .coding-maincontainer .coding-firstcontainer > div li {
+    font-size: 20px;
+  }
+  .coding-maincontainer .coding-fourthcontainer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .coding-maincontainer .coding-fifthcontainer h2 {
+    width: 100%;
+  }
+  .coding-maincontainer .coding-fifthcontainer > section {
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .coding-maincontainer .coding-firstcontainer > div {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .coding-maincontainer .coding-firstcontainer h1 {
+    text-align: center;
+  }
+  .coding-maincontainer .coding-firstcontainer li {
+    text-align: center;
+    list-style: none;
+  }
+  .coding-maincontainer .coding-secondcontainer {
+    flex-wrap: wrap;
+    width: auto;
+    gap: 2px;
+    max-width: 500px;
+    margin: auto;
+  }
+  .coding-maincontainer .coding-secondcontainer img {
+    width: 50px;
+  }
+  .coding-maincontainer .coding-secondcontainer p {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 764px) {
+  .coding-maincontainer .coding-firstcontainer {
+    min-height: auto;
+  }
+  .coding-maincontainer .coding-firstcontainer > div {
+    padding: 16px;
+  }
+  .coding-maincontainer .coding-firstcontainer > div h1 {
+    font-size: 26px;
+    width: 320px;
+    margin: 10px auto;
+  }
+  .coding-maincontainer .coding-firstcontainer > div ul {
+    padding: 0;
+  }
+  .coding-maincontainer .coding-firstcontainer > div li {
+    font-size: 18px;
+    margin: 6px 0;
+  }
+  .coding-maincontainer .coding-firstcontainer > div object {
+    width: 280px;
+  }
+
+  .coding-maincontainer .coding-thirdcontainer h2 {
+    font-size: 30px;
+  }
+  .coding-maincontainer .third-imagecontainer {
+    gap: 10px;
+    max-width: 500px;
+  }
+  .coding-maincontainer .third-imagecontainer img {
+    width: 180px;
+  }
+  .coding-maincontainer .large-numbers {
+    font-size: 3.5em;
+  }
+  .coding-maincontainer .coding-fifthcontainer h3,
+  .coding-maincontainer .coding-fifthcontainer p {
+    margin: 10px 0 0;
+    padding: 0;
+  }
+}
+
+/*******************
+   CODING ENDS
+********************/
+
+/*******************
+   ENGLISH 
+-- BY VARINDERPAL SINGH
+********************/
+
+.hero-eng {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
+.hero-bg {
+  position: absolute;
+  z-index: -1;
+  background: url("https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149464866.jpg?w=2000&t=st=1713264111~exp=1713264711~hmac=66a7723ee77b085a04ff5ba364d4da600be8aab280860438ccce7c0e65d1a356");
+  /* https://img.freepik.com/free-vector/hand-drawn-back-school-background_23-2149464866.jpg?w=2000&t=st=1713264111~exp=1713264711~hmac=66a7723ee77b085a04ff5ba364d4da600be8aab280860438ccce7c0e65d1a356 */
+  width: 100%;
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0px;
+  bottom: 0px;
+}
+.hero-head {
+  font-size: 50px;
+  padding: 16px;
+  border-radius: 8px;
+}
+.center {
+  text-align: center;
+}
+.g-cards {
+  padding: 80px 0 80px 0;
+}
+.e-grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.img-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.img-up {
+  margin: -125px;
+  border-radius: 100%;
+}
+.realtive {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-top-text {
+  position: absolute;
+  padding: 30px;
+  background-color: white;
+  z-index: 5;
+  text-align: center;
+  width: 75%;
+}
+.quote-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eng-quote {
+  width: 75%;
+  padding-top: 200px;
+  text-align: center;
+}
+.sub-head {
+  color: var(--color-primary);
+  background: var(--color-primary-green-light);
+  font-weight: 500;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  .e-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .hero-eng {
+    height: auto;
+    padding: 70px 0;
+  }
+  .hero-head {
+    font-size: 26px;
+  }
+  .e-grid {
+    grid-template-columns: 350px;
+  }
+}
+
+/*******************
+   ENGLISH ENDS
+********************/
